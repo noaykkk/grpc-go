@@ -14,7 +14,7 @@ type server struct {
 
 func (s *server) SayHi(ctx context.Context, req *hello_grpc.Req) (res *hello_grpc.Res, err error) {
 	fmt.Println(req.GetMessage())
-	return &hello_grpc.Res{Message: "I am message"}, nil
+	return &hello_grpc.Res{Message: "pong"}, nil
 }
 
 func main() {
