@@ -1,4 +1,4 @@
-module example.com/m
+module github.com/noaykkk/grpc-go
 
 go 1.18
 
