@@ -1,8 +1,9 @@
-package server
+package main
 
 import (
 	"context"
 	"fmt"
+	hello_grpc "github.com/noaykkk/grpc-go/pb"
 	"google.golang.org/grpc"
 	"net"
 )
@@ -17,11 +18,14 @@ func (s *server) SayHi(ctx context.Context, req *hello_grpc.Req) (res *hello_grp
 }
 
 func main() {
-	listen, err := net.Listen("rpc", "8000")
+	listen, err := net.Listen("tcp", ":8000")
 	if err != nil {
-		return
+		fmt.Println(err)
 	}
 	s := grpc.NewServer()
 	hello_grpc.RegisterHelloGRPCServer(s, &server{})
-	s.Serve(listen)
+	err = s.Serve(listen)
+	if err != nil {
+		fmt.Println(err)
+	}
 }
