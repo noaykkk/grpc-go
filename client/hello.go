@@ -7,7 +7,7 @@ import (
 	"google.golang.org/grpc"
 )
 
-func main() {
+func hmain() {
 	dial, err := grpc.Dial("localhost:8000", grpc.WithInsecure())
 	defer dial.Close()
 	if err != nil {

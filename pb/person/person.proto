@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package person;
+
+option go_package="github/pixel/pb/person;person";
+
+message PersonReq {
+  string name = 1;
+  int32 age = 2;
+  int32 gender = 3;
+}
+
+message PersonRes {
+  string name = 1;
+  int32 age = 2;
+  int32 gender = 3;
+}
+
+service SearchService {
+  rpc Search(PersonReq) returns (PersonRes);
+  rpc SearchIn(stream PersonReq) returns (PersonRes);
+  rpc SearchOut(PersonReq) returns (stream PersonRes);
+  rpc SearchIO(stream PersonReq) returns (stream PersonRes);
+}
+            

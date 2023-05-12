@@ -17,7 +17,7 @@ func (s *server) SayHi(ctx context.Context, req *hello_grpc.Req) (res *hello_grp
 	return &hello_grpc.Res{Message: "pong"}, nil
 }
 
-func main() {
+func hmain() {
 	listen, err := net.Listen("tcp", ":8000")
 	if err != nil {
 		fmt.Println(err)
