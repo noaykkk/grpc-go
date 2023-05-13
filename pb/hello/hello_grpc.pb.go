@@ -4,7 +4,7 @@
 // 	protoc        v3.9.0
 // source: hello_grpc.proto
 
-package hello_grpc
+package hello
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"

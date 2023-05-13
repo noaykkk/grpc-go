@@ -4,6 +4,8 @@ package person;
 
 option go_package="github/pixel/pb/person;person";
 
+import "google/api/annotations.proto";
+
 message PersonReq {
   string name = 1;
   int32 age = 2;
@@ -17,7 +19,12 @@ message PersonRes {
 }
 
 service SearchService {
-  rpc Search(PersonReq) returns (PersonRes);
+  rpc Search(PersonReq) returns (PersonRes) {
+    option(google.api.http)={
+      post:'/api/person',
+      body:"*"
+    };
+  };
   rpc SearchIn(stream PersonReq) returns (PersonRes);
   rpc SearchOut(PersonReq) returns (stream PersonRes);
   rpc SearchIO(stream PersonReq) returns (stream PersonRes);

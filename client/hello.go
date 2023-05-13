@@ -3,7 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
-	hello_grpc "github.com/noaykkk/grpc-go/pb"
+	"github.com/noaykkk/grpc-go/pb/hello"
 	"google.golang.org/grpc"
 )
 
@@ -13,8 +13,8 @@ func hmain() {
 	if err != nil {
 		fmt.Println(err)
 	}
-	client := hello_grpc.NewHelloGRPCClient(dial)
-	req, err := client.SayHi(context.Background(), &hello_grpc.Req{Message: "ping"})
+	client := hello.NewHelloGRPCClient(dial)
+	req, err := client.SayHi(context.Background(), &hello.Req{Message: "ping"})
 	if err != nil {
 		fmt.Println(err)
 	}
